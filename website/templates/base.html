@@ -25,6 +25,10 @@
 				}		
 			}
 		</script>
+		<!-- imports toastr -->
+		{{ toastr.include_jquery() }}
+    {{ toastr.include_toastr_css() }}
+    {{ toastr.message() }}
   </head>
   <body class="font-sans bg-violet-900 overflow-x-hidden">
 		
@@ -110,6 +114,9 @@
 			</div>
 		</nav>
 
+		<!-- sets location for toastr markup -->
+		{{ toastr.include_toastr_js() }}
+		
 		{% block hero %}
 		
 		{% endblock %}
