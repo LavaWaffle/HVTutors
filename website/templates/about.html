@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+<!-- sets title -->
+{% block title %}About{% endblock %}
+
+<!-- hero -->
+{% block hero %}
+<section class="bg-violet-400 py-10">
+	<!-- width limiter -->
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+		
+		<!-- body title -->
+		<div class="block w-full mb-4">
+			<h1 class="text-teal-300 text-4xl text-center font-bold">
+				About HV Tutors
+			</h1>
+		</div>
+		
+		<!-- block vs flex -->
+		<div class="block md:flex justify-between space-y-10 md:space-y-0">
+			
+			<!-- descriptions -->
+			<div class="flex flex-col w-full md:w-1/2 gap-8">
+				<!-- desc 1 -->
+				<p class="text-violet-50 text-3xl text-center md:text-left">
+					We here at HV Tutors believe that all students deserve the ability to get help with their education at an affordable price. We are independently run at Hopewell which allows us to make sure our customers are able to get the education they want!
+				</p>
+
+				<!-- desc 2 -->
+				<p class="text-violet-50 text-3xl text-center md:text-left">
+					HV Tutors is open on weekdays after school hours from 3pm to 9pm and open from 8am to 9pm on weekends. Tutor sessions last for 1 hour, 90 minutes, or 2 hours. We offer tutoring at your specified location or at Mercer County Library
+				</p>
+			</div>
+			
+			<!-- HVCHS image -->
+			<div class="inline-flex justify-center md:justify-end items-center w-full md:w-1/2">
+        <!-- img-wrapper -->
+        <div class="group relative md:w-5/6 md:h-w overflow-hidden rounded-lg shadow-lg transition duration-200 ease-in-out">
+        	<img class="block w-full aspect-square object-cover object-center transition duration-200 ease-in-out group-hover:scale-110 group-hover:blur-[5px]" src="https://portal.fvhdpc.com/images/imagegallery/Hopewell-CHS-Front-Ent_home.jpg" alt="Hopewell Valley Central High School">
+          <!-- content -->
+          <div class="absolute inset-0 text-3xl text-teal-900 p-4 bg-white flex justify-center items-center transition duration-200 ease-in-out opacity-0 group-hover:opacity-50">
+          	Hopewell Valley Central High School Entrance
+          </div>
+        </div>
+      </div>
+
+		</div>
+
+	</div>
+
+</section>
+{% endblock %}

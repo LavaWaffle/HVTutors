@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+<!-- sets title -->
+{% block title %}Home{% endblock %}
+
+<!-- hero -->
+{% block hero %}
+<section class="bg-violet-400 py-10">
+	<!-- width limiter -->
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+		<!-- block vs flex -->
+		<div class="block sm:flex space-y-10 sm:space-y-0">
+			<!-- left -->
+			<div class="inline-flex flex-col items-center w-full sm:w-1/2">
+				<h1 class="text-teal-300 text-4xl text-center font-bold mb-3">Ace Your Next Test</h1>
+				<img class="w-fit rounded-lg shadow-xl" src="../static/images/home/smallPerfect.png" alt="Perfect Test Score">
+			</div>
+
+			<!-- right -->
+			<div class="inline-flex flex-col items-center w-full sm:w-1/2">
+				<div>
+					<h1 class="text-teal-300 text-4xl text-center font-bold">Get a Tutor Today</h1>
+				</div>
+
+
+				<div class="inline-flex flex-wrap items-center justify-center space-y-3 space-x-3">
+					<!-- prevents space-x/y from changing the size of the divs -->
+					<div></div>
+
+					<a id="Math" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="">
+						<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">Math</h2>
+					</a>
+
+					<a id="English" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="">
+						<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">English</h2>
+					</a>
+
+					<a id="Science" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="">
+						<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">Science</h2>
+					</a>
+
+					<a id="History" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="">
+						<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">History</h2>
+					</a>
+
+					<a id="SatAct" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="">
+						<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">SAT/ACT</h2>
+					</a>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block extraContent %}
+
+<!-- reviews -->
+<section class="bg-violet-600 py-10">
+	<!-- width limiter -->
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+		
+		<div class="flex items-center justify-center pb-4">
+			<h1 class="text-teal-300 text-4xl text-center font-bold">Reviews</h1>
+		</div>
+		<!-- grid -->
+		<div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+			<blockquote class="bg-violet-500 p-5 rounded inline-flex justify-center items-center">
+				<div class="w-fit">
+					<!-- review -->
+					<p class="relative text-violet-100 text-2xl text-center italic before:content-['&ldquo;'] before:text-[30px] after:content-['&rdquo;'] after:text-[30px]">
+						My SAT score improved by 300 points
+					</p>
+					<!-- reviewer -->
+					<p class="text-teal-100 text-2xl text-center">
+						Sarah He
+					</p>
+				</div>
+			</blockquote>
+
+			<blockquote class="bg-violet-500 p-5 rounded inline-flex justify-center items-center">
+				<div class="w-fit">
+					<!-- review -->
+					<p class="relative text-violet-100 text-2xl text-center italic before:content-['&ldquo;'] before:text-[30px] after:content-['&rdquo;'] after:text-[30px]">
+						My ACT score improved by 6 points
+					</p>
+					<!-- reviewer -->
+					<p class="text-teal-100 text-2xl text-center">
+						Emporrer Mommy Kitten
+					</p>
+				</div>
+			</blockquote>
+
+			<blockquote class="bg-violet-500 p-5 rounded inline-flex justify-center items-center">
+				<div class="w-fit">
+					<!-- review -->
+					<p class="relative text-violet-100 text-2xl text-center italic before:content-['&ldquo;'] before:text-[30px] after:content-['&rdquo;'] after:text-[30px]">
+						The tutors were fast but thorough, making sure I understood everything
+					</p>
+					<!-- reviewer -->
+					<p class="text-teal-100 text-2xl text-center">
+						Jesse Yu
+					</p>
+				</div>
+			</blockquote>
+
+			<blockquote class="bg-violet-500 p-5 rounded inline-flex justify-center items-center">
+				<div class="w-fit">
+					<!-- review -->
+					<p class="relative text-violet-100 text-2xl text-center italic before:content-['&ldquo;'] before:text-[30px] after:content-['&rdquo;'] after:text-[30px]">
+						My average math test grade improved to the high 90 range
+					</p>
+					<!-- reviewer -->
+					<p class="text-teal-100 text-2xl text-center">
+						Kai Sugrue
+					</p>
+				</div>
+			</blockquote>
+
+			<blockquote class="bg-violet-500 p-5 rounded inline-flex justify-center items-center">
+				<div class="w-fit">
+					<!-- review -->
+					<p class="relative text-violet-100 text-2xl text-center italic before:content-['&ldquo;'] before:text-[30px] after:content-['&rdquo;'] after:text-[30px]">
+						My ability to comprehend old works of literature, such as Romeo and Juliet, has improved a lot
+					</p>
+					<!-- reviewer -->
+					<p class="text-teal-100 text-2xl text-center">
+						Lucas Zapata-Sanin
+					</p>
+				</div>
+			</blockquote>
+
+			<blockquote class="bg-violet-500 p-5 rounded inline-flex justify-center items-center">
+				<div class="w-fit">
+					<!-- review -->
+					<p class="relative text-violet-100 text-2xl text-center italic before:content-['&ldquo;'] before:text-[30px] after:content-['&rdquo;'] after:text-[30px]">
+						My reasoning skills drastically increased
+					</p>
+					<!-- reviewer -->
+					<p class="text-teal-100 text-2xl text-center">
+						Anand Parab
+					</p>
+				</div>
+			</blockquote>
+
+		</div>
+
+	</div>
+</section>
+
+<script src="{{url_for('static', filename='serviceIcons.js')}}"></script>
+
+{% endblock %}
+
