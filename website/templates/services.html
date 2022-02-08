@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+<!-- sets title -->
+{% block title %}Services{% endblock %}
+
+<!-- hero -->
+{% block hero %}
+<section class="bg-violet-400 py-10">
+	<!-- width limiter -->
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+		
+		<!-- body title -->
+		<div class="flex items-center justify-evenly w-full mb-4">
+			<h1 class="text-teal-300 text-4xl text-center font-bold">
+				Services
+			</h1>
+
+			<div class="service-in-d group relative bg-violet-500 hover: p-3 rounded-xl">
+				<button class="inline-flex items-center justify-center space-x-1 text-violet-50 hover:text-violet-100">
+					<span>Services Types</span>
+					<svg class="service-in-s h-5 w-h group-hover:-rotate-180 transition" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+					</svg>
+				</button>
+				
+
+				<!-- drop down -->
+				<div class="service-in-c hidden group-hover:block text-center sm:text-left sm:absolute inset-x-6 top-full w-full sm:w-max sm:shadow-xl sm:bg-violet-50 sm:border-b-2 border-teal-700 sm:z-10">
+					<a href="/services" class="sm:hidden text-violet-50 hover:text-violet-100 block py-[3px]">All Services</a>
+					<a href="/services/subject=math" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">Math</a>
+					<a href="/services/subject=english" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">English</a>
+					<a href="/services/subject=science" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">Science</a>
+					<a href="/services/subject=history" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">History</a>
+					<a href="/services/subject=SatAct" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">SAT/ACT</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- services -->
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
+		</div>
+
+	</div>
+	
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script>
+	
+</script>
+{% endblock %}
