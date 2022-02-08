@@ -7,13 +7,13 @@
 {% block hero %}
 <section class="bg-violet-400 py-10">
 	<!-- width limiter -->
-	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] min-h-[20rem] mx-auto px-8">
 		<!-- block vs flex -->
 		<div class="block sm:flex space-y-10 sm:space-y-0">
 			<!-- left -->
 			<div class="inline-flex flex-col items-center w-full sm:w-1/2">
 				<h1 class="text-teal-300 text-4xl text-center font-bold mb-3">Ace Your Next Test</h1>
-				<img class="w-fit rounded-lg shadow-xl" src="../static/images/home/smallPerfect.png" alt="Perfect Test Score">
+				<img class="w-fit rounded-lg shadow-xl  animate__animated animate__backInLeft" src="../static/images/home/smallPerfect.png" alt="Perfect Test Score">
 			</div>
 
 			<!-- right -->
@@ -23,9 +23,7 @@
 				</div>
 
 
-				<div class="inline-flex flex-wrap items-center justify-center space-y-3 space-x-3">
-					<!-- prevents space-x/y from changing the size of the divs -->
-					<div></div>
+				<div class="inline-flex flex-wrap items-center justify-center gap-3 mt-3">
 
 					<a id="Math" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="">
 						<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">Math</h2>
@@ -62,7 +60,7 @@
 	<!-- width limiter -->
 	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
 		
-		<div class="flex items-center justify-center pb-4">
+		<div class="flex items-center justify-center pb-4 animate__animated animate__backInLeft">
 			<h1 class="text-teal-300 text-4xl text-center font-bold">Reviews</h1>
 		</div>
 		<!-- grid -->

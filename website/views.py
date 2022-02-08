@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, url_for,  redirect, session
-
+from .xlsxRead import getSheet, getData, getType, getFront 
 
 # defines that this file will contain blue prints
 views = Blueprint('views', __name__)
@@ -46,4 +46,13 @@ def emailGratification():
 			return redirect(directions[1])
 			
 	return render_template('emailGratification.html')
+
+@views.route('/services')
+def services():
+	sheet = getSheet("website/static/serviceData/services.xlsx")
+	data = getData(sheet)
+
+	flash(data, 'data')
+
+	return render_template('services.html')
 

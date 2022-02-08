@@ -4,12 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>HV Tutors - {% block title %}{% endblock %}</title>
+		
+		<!-- imports archivo font -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,200;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
 		
-
+		
+		<!-- imports tailwind cdn -->
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script>
 			tailwind.config = {
@@ -22,7 +25,14 @@
 					fontFamily: {
 						sans: ['Archivo'],
 					},
-				}		
+				},
+				plugins: [
+					require('tailwindcss-animatecss')({
+						classes: ['animate__animated', 'animate__backInLeft'],
+						settings: {},
+						variants: [],
+					})
+				]
 			}
 		</script>
 		<!-- imports toastr -->
@@ -81,7 +91,7 @@
 							
 
 							<!-- drop down -->
-							<div class="service-c hidden text-center sm:text-left sm:absolute left-0 top-full w-full sm:w-max sm:shadow-xl sm:bg-violet-50 sm:border-b-2 border-teal-700">
+							<div class="service-c hidden text-center sm:text-left sm:absolute left-0 top-full w-full sm:w-max sm:shadow-xl sm:bg-violet-50 sm:border-b-2 border-teal-700 sm:z-10">
 								<a href="/services" class="sm:hidden text-violet-50 hover:text-violet-100 block py-[3px]">All Services</a>
 								<a href="/services/subject=math" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">Math</a>
 								<a href="/services/subject=english" class="text-violet-50 sm:text-teal-500 hover:text-violet-100 sm:hover:text-violet-50 sm:hover:bg-teal-600 block sm:w-auto py-[3px] sm:py-[10px] sm:px-[20px]">English</a>
