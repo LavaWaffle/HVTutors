@@ -9,7 +9,7 @@ def email(fEmail, onEmail=False):
 	# checks if post method is for fEmail
 	if str(type(fEmail)) != "<class 'NoneType'>":
 		if onEmail:
-			return ('flash', ("You already signed up for the email list", "info"))
+			return ('flash', ("You already signed up for the email list.", "info"))
 		else:
 			# Email would be added to a database here
 			return ('redirect', "/emailGratification")
@@ -131,7 +131,10 @@ def cart():
 
 		checkOut = (request.form.get('checkOut',''))
 		if checkOut.lower() == 'checkout':
-			resetCart()
+			if len(session['cart']) > 0:
+				resetCart()
+			else:
+				flash("You don't have any items in your cart. Come back when you do!","info")
 		
 	sheet = getSheet("website/static/serviceData/services.xlsx")
 	data = getData(sheet)
