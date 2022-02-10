@@ -32,6 +32,7 @@ def getType(bigDict, type):
 	return returnDict
 
 def getFront(bigDict, frontList):
+	sum = 0
 	returnList = []
 	for list in frontList:
 		for key, value in bigDict.items():
@@ -45,4 +46,5 @@ def getFront(bigDict, frontList):
 				else:
 					value['chosenTime'] = ['2 Hours', value['2Hours']]
 				returnList.append([key, value])
-	return returnList
+				sum += value['chosenTime'][1]
+	return (returnList, sum)
