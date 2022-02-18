@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+<!-- sets title -->
+{% block title %}Finalize Checkout{% endblock %}
+
+<!-- hero -->
+{% block hero %}
+<section class="bg-violet-400 py-10">
+	<!-- width limiter -->
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+
+		<!-- body title -->
+		<div class="flex items-center justify-center w-full mb-6">
+			<h1 class="text-teal-300 text-4xl text-center font-bold">
+				Finaize Checkout
+			</h1>
+		</div>
+
+		
+		<div class="flex flex-col sm:flex-row justify-around w-full">
+			<div class="flex flex-col items-center w-full sm:w-1/2">	
+			<form class="flex flex-col items-center justify-center w-full gap-4 sm:mb-4 mb-8" action="" method="POST">
+				
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+				{% if category == 'paytype' %}
+					{% if message == 'credit' %}
+						<h2 class="text-teal-300 text-3xl text-center font-bold">
+							Paypal Information
+						</h2>
+						<input type="text" name="CCnumber" placeholder="Credit Card Number" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
+						<input type="text" name="CCexpire" placeholder="Expiration (mm/yy)" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
+						<input type="text" name="CCcode" placeholder="Security Code" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
+					{% elif message == 'paypal' %}
+						<h2 class="text-teal-300 text-3xl text-center font-bold">
+							Paypal Information
+						</h2>
+						<input type="email" name="PEmail" placeholder="Paypal email address" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
+						<input type="text" name="PPass" placeholder="Paypal password" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
+						
+					{% endif %}
+				{% endif %}
+				{% endfor %}
+			{% endif %}
+			{% endwith %}
+				<h2 class="text-teal-300 text-3xl text-center font-bold">
+					Date for service
+				</h2>
+				<div class="datepicker form-floating relative flex justify-center w-full" data-mdb-toggle-button="false">
+			    <input name="date" type="text"
+			      class="form-control w-full inset-0 w-full sm:w-10/12 px-3 py-1 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+			      placeholder="Select a date" data-mdb-toggle="datepicker"/>
+			    <label for="floatingInput" class="text-gray-400 sm:ml-8 md:ml-10 lg:ml-12 xl:ml-14">Select a date</label>
+			  </div>
+			</form>
+			</div>
+
+			<div class="flex justify-center w-full sm:w-1/2">
+				<table class="w-full sm:w-fit md:w-10/12 lg:w-9/12 bg-zinc-500 text-center text-xl sm:text-2xl">
+				<thead class="text-gray-100 text-bold">
+					<tr>
+						<th class="py-[10px] px-2">
+							Service
+						</th>
+						<th class="px-2">
+							Time
+						</th>
+						<th class="px-2">
+							Pricing
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% with messages = get_flashed_messages(with_categories=true) %}
+					{% if messages %}
+						{% for category, message in messages %}
+						{% if category == 'cart' %}
+							{% for list in message %}
+							<tr class="border-b-[2px] border-slate-500 even:bg-neutral-400 even:hover:bg-neutral-300 odd:bg-stone-400 odd:hover:bg-stone-300 even:text-gray-50 odd:text-zinc-50">
+								<td class="py-[10px] px-2">
+									{{ list[1]['name'] }}
+								</td>
+								<td class="py-[10px] px-2">
+									{{ list[1]['chosenTime'][0] }}
+								</td>
+								<td class="py-[10px] px-2">
+									${{ list[1]['chosenTime'][1] }}
+								</td>
+							</tr>
+							{% endfor %}
+						{% endif %}
+						{% endfor %}
+					{% endif %}
+					{% endwith %}
+				</tbody>
+				
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					{% for category, message in messages %}
+					{% if category == 'sum' %}
+							<thead class="text-gray-100 text-bold">
+								<tr>
+									<th class="py-[10px] px-2 text-center" colspan="3">
+										Total Price
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% if message != 0 %}
+								<tr class="border-b-[2px] border-slate-500 bg-stone-400 hover:bg-stone-300 text-emerald-200 animate__animated animate__backInRight">
+									<td class="py-[10px] px-2 text-center" colspan="3">
+										${{message}}
+									</td>
+								</tr>
+								{% endif %}
+							</tbody>
+						{% endif %}
+						{% endfor %}
+					{% endif %}
+					{% endwith %}
+
+			</table>
+			</div>
+
+		</div>
+		<!-- confirm order button -->
+		<form class="flex flex-col items-center justify-center w-full gap-4 mt-6 sm:mb-4 mb-8" action="" method="POST">
+
+			<button type="sumbit" class="w-full sm:w-fit text-white text-xl p-2 px-3 rounded-lg transition ease-in-out bg-violet-600 hover:bg-teal-400 group-hover:scale-110">Confirm Order</button>
+		</form>
+
+	</div>
+</section>
+{% endblock %}

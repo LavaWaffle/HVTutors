@@ -196,3 +196,47 @@ def checkout():
 	
 	
 	return render_template('checkout.html')
+
+@views.route('/finalizecheckout/<paytype>', methods=['GET', 'POST'])
+def finalizecheckout(paytype):
+	if request.method == "POST":         
+		directions = email(request.form.get('fEmail'))
+		if directions[0] == 'flash':
+			flash(directions[1][0], directions[1][1])
+		elif directions[0] == 'redirect':
+			return redirect(directions[1])
+		elif directions[0] == 'pass':	
+			pass
+		# You would get data from form here and send to a db
+		return redirect('/checkoutgratification')
+	
+	sheet = getSheet("website/static/serviceData/services.xlsx")
+	data = getData(sheet)
+		
+	try:
+		frontEnd = getFront(data, session['cart'])
+		flash(frontEnd[0],"cart")
+		flash(frontEnd[1], "sum")
+	except Exception:
+		pass
+
+	paytype = paytype.partition("=")[2]
+	if paytype == 'credit':
+		flash(paytype, 'paytype')
+	else:
+		flash(paytype, 'paytype')
+
+	return render_template('finalizeCheckout.html')
+
+@views.route('/checkoutgratification', methods=['GET', 'POST'])
+def checkoutgratification():
+	if request.method == "POST":         
+		directions = email(request.form.get('fEmail'))
+		if directions[0] == 'flash':
+			flash(directions[1][0], directions[1][1])
+		elif directions[0] == 'redirect':
+			return redirect(directions[1])
+		elif directions[0] == 'pass':	
+			pass
+	return render_template('checkoutGratification.html')
+
