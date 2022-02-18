@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width">
     <title>HV Tutors - {% block title %}{% endblock %}</title>
 		
-		<!-- imports archivo font -->
+		<!-- imports archivo font via google.fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,200;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
-		<!-- imports animated cdn -->
+		<!-- imports animated via cdn -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		
-		<!-- imports tailwind cdn -->
+		<!-- imports tailwind via cdn -->
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script>
 			tailwind.config = {
@@ -29,6 +29,12 @@
 				}		
 			}
 		</script>
+
+		<!-- imports tailwind elements via cdn -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+
 		<!-- imports toastr -->
 		{{ toastr.include_jquery() }}
     {{ toastr.include_toastr_css() }}
@@ -185,5 +191,7 @@
     {% block javascript %}
 
     {% endblock %}
+		<!-- imports tailwind elements js via cdn -->
+		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@ def email(fEmail, onEmail=False):
 	# checks if post method is for fEmail
 	if str(type(fEmail)) != "<class 'NoneType'>":
 		if onEmail:
-			return ('flash', ("You already signed up for the email list", "info"))
+			return ('flash', ("You already signed up for the email list.", "info"))
 		else:
 			# Email would be added to a database here
 			return ('redirect', "/emailGratification")
@@ -131,8 +131,15 @@ def cart():
 
 		checkOut = (request.form.get('checkOut',''))
 		if checkOut.lower() == 'checkout':
-			resetCart()
-		
+			try:
+				if len(session['cart']) > 0:
+					return redirect('/checkout')
+				else:
+					flash("You don't have any items in your cart. Come back when you do!","info")
+			except KeyError:
+				flash("You don't have any items in your cart. Come back when you do!","info")
+				
+
 	sheet = getSheet("website/static/serviceData/services.xlsx")
 	data = getData(sheet)
 		
@@ -145,3 +152,91 @@ def cart():
 		pass
 
 	return render_template('cart.html')
+
+@views.route('/checkout', methods=['GET', 'POST'])
+def checkout():
+	if request.method == "POST":         
+		directions = email(request.form.get('fEmail'))
+		if directions[0] == 'flash':
+			flash(directions[1][0], directions[1][1])
+		elif directions[0] == 'redirect':
+			return redirect(directions[1])
+		elif directions[0] == 'pass':	
+			pass
+		
+		# gets name data
+		firstName = request.form.get('firstName')
+		middleName = request.form.get('middleName')
+		lastName = request.form.get('lastName')
+
+		# if no name is given
+		# gets email data
+		fEmail = request.form.get('email')
+
+		# gets location data
+		locOption = request.form.get('location') # MCL vs custom
+		address = request.form.get('address')
+
+		# gets payment data  
+		payment = request.form.get('payment')
+		if payment == 'Credit/Debit':
+			payment = 'credit'
+		else:
+			payment = 'paypal'
+
+		# check if user entered data is valid
+		if len(firstName) == 0 and len(middleName) == 0 and len(lastName) == 0:
+			flash('Please enter your name in one of the name boxes', 'error')
+		elif len(fEmail) == 0:
+			flash('Please enter your email in the email box', 'error')
+		elif locOption == 'custom' and len(address) == 0:
+			flash('Please enter your custom location address in the custom location box', 'error')
+		else: # if user entered data is valid, redirect user to the finalizecheckout page
+			return redirect(f'/finalizecheckout/paytype={payment}')
+	
+	
+	return render_template('checkout.html')
+
+@views.route('/finalizecheckout/<paytype>', methods=['GET', 'POST'])
+def finalizecheckout(paytype):
+	if request.method == "POST":         
+		directions = email(request.form.get('fEmail'))
+		if directions[0] == 'flash':
+			flash(directions[1][0], directions[1][1])
+		elif directions[0] == 'redirect':
+			return redirect(directions[1])
+		elif directions[0] == 'pass':	
+			pass
+		# You would get data from form here and send to a db
+		return redirect('/checkoutgratification')
+	
+	sheet = getSheet("website/static/serviceData/services.xlsx")
+	data = getData(sheet)
+		
+	try:
+		frontEnd = getFront(data, session['cart'])
+		flash(frontEnd[0],"cart")
+		flash(frontEnd[1], "sum")
+	except Exception:
+		pass
+
+	paytype = paytype.partition("=")[2]
+	if paytype == 'credit':
+		flash(paytype, 'paytype')
+	else:
+		flash(paytype, 'paytype')
+
+	return render_template('finalizeCheckout.html')
+
+@views.route('/checkoutgratification', methods=['GET', 'POST'])
+def checkoutgratification():
+	if request.method == "POST":         
+		directions = email(request.form.get('fEmail'))
+		if directions[0] == 'flash':
+			flash(directions[1][0], directions[1][1])
+		elif directions[0] == 'redirect':
+			return redirect(directions[1])
+		elif directions[0] == 'pass':	
+			pass
+	return render_template('checkoutGratification.html')
+
