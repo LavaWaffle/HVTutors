@@ -1,9 +1,10 @@
+# imports flask
 from flask import Flask
 # imports toastr
 from flask_toastr import Toastr
 
+# creates toastr object
 toastr = Toastr()
-GLOBAL_ID = 0
 
 def create_app():
 	app = Flask(__name__)
@@ -15,9 +16,7 @@ def create_app():
 	# registers each page with its url prefix
 	app.register_blueprint(views, url_prefix='/')
 
-	# config toast features | DELETE THIS L8R
-	# app.config['TOASTR_HIDE_EASING'] = 'swing'
-	# initialize toastr on the app within create_app()
+	# initializes toastr 
 	toastr.init_app(app)
 
 	# returns the app to main.py
