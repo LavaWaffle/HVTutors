@@ -23,7 +23,6 @@
 					</svg>
 				</button>
 				
-
 				<!-- drop down -->
 				<div class="service-in-c hidden animate__animated animate__fadeIn group-hover:block text-center text-left absolute -inset-x-2 sm:inset-x-4 top-full w-max shadow-xl bg-violet-50 border-b-2 border-teal-700 z-10">
 					<a href="/services" class="text-teal-500 hover:text-violet-50 hover:bg-teal-600 block w-auto py-[3px] py-[10px] px-[20px]">All Services</a>
@@ -38,15 +37,11 @@
 
 		<!-- services -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-			
 			{% with messages = get_flashed_messages(with_categories=true) %}
 				{% if messages %}
 					{% for category, message in messages %}
 					{% if category == 'data' %}
 						{% for key, value in message.items() %}
-						
-
-
 							<div class="group animate__animated animate__bounceInUp h-max bg-violet-800 p-5 rounded-lg overflow-hidden m-5">
 								<h1 class="text-white text-2xl mb-2 text-center md:text-left">{{value['name']}}</h1>
 								<p class="text-slate-400 text-lg mb-2">{{value['description']}}</p>
@@ -55,33 +50,25 @@
 								<h6 class="text-white text-xl mb-2 text-left">2 Hours: <span class="text-teal-300">${{value['2Hours']}}</span></h6>
 								<form class="flex justify-between space-x-1" action="" method="POST">
 									<button type="sumbit" class="w-5/12 lg:w-5/12 text-white text-xl p-1 rounded-lg transition ease-in-out bg-violet-600 hover:bg-teal-400 group-hover:scale-110">Add to cart</button>
-									
 									<!-- allows flask to get data on what item the user added to cart -->
 									<label for="itemId" class="hidden"></label>
 									<input value={{key}} type="text" name="itemId" class="hidden">
-
 									<label for="itemTime" class="hidden"></label>
 									<select type="itemTime" name="itemTime" id="itemTime" class="w-5/12 lg:w-5/12 form-control group text-white text-xl p-1 bg-violet-600 rounded-lg border-hidden border-blue-500 focus:bg-teal-300 focus:text-violet-600 focus:border-solid" >
 										<option>1 hour</option>
 										<option>90 minutes</option>
 										<option>2 hours</option>
-
 									</select>
 								</form>
 							
 							</div>
-						
 						{% endfor %}
 					{% endif %}
 					{% endfor %}
 				{% endif %}
 				{% endwith %}
-
-
-
 		</div>
 
 	</div>
-	
 </section>
 {% endblock %}

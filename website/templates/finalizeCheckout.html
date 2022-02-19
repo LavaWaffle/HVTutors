@@ -15,12 +15,10 @@
 				Finaize Checkout
 			</h1>
 		</div>
-
 		
 		<div class="flex flex-col sm:flex-row justify-around w-full">
 			<div class="flex flex-col items-center w-full sm:w-1/2">	
 			<form class="flex flex-col items-center justify-center w-full gap-4 sm:mb-4 mb-8" action="" method="POST">
-				
 			{% with messages = get_flashed_messages(with_categories=true) %}
 			{% if messages %}
 				{% for category, message in messages %}
@@ -38,7 +36,6 @@
 						</h2>
 						<input type="email" name="PEmail" placeholder="Paypal email address" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
 						<input type="text" name="PPass" placeholder="Paypal password" class="w-full sm:w-10/12 px-3 py-1.5 text-base sm:text-lg rounded border border-solid border-gray-300 transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
-						
 					{% endif %}
 				{% endif %}
 				{% endfor %}
@@ -95,7 +92,6 @@
 					{% endif %}
 					{% endwith %}
 				</tbody>
-				
 				{% with messages = get_flashed_messages(with_categories=true) %}
 				{% if messages %}
 					{% for category, message in messages %}
@@ -120,14 +116,12 @@
 						{% endfor %}
 					{% endif %}
 					{% endwith %}
-
 			</table>
 			</div>
 
 		</div>
 		<!-- confirm order button -->
 		<form class="flex flex-col items-center justify-center w-full gap-4 mt-6 sm:mb-4 mb-8" action="" method="POST">
-
 			<button type="sumbit" class="w-full sm:w-fit text-white text-xl p-2 px-3 rounded-lg transition ease-in-out bg-violet-600 hover:bg-teal-400 group-hover:scale-110">Confirm Order</button>
 		</form>
 
