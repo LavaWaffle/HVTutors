@@ -1,10 +1,14 @@
 # imports flask
-from flask import Flask
+from flask import Flask, render_template
 # imports toastr
 from flask_toastr import Toastr
 
 # creates toastr object
 toastr = Toastr()
+
+# 404 page error handler
+def pageNotFound(e):
+	return render_template('404.html'), 404
 
 def create_app():
 	app = Flask(__name__)
@@ -18,6 +22,9 @@ def create_app():
 
 	# initializes toastr 
 	toastr.init_app(app)
+
+	# explains to flask what to display for 404 page errors
+	app.register_error_handler(404, pageNotFound)
 
 	# returns the app to main.py
 	return app
