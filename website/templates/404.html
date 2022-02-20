@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+<!-- sets title -->
+{% block title %}404 Error{% endblock %}
+
+<!-- hero -->
+{% block hero %}
+<section class="bg-violet-400 py-10">
+	<!-- width limiter -->
+	<div class="lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[100rem] mx-auto px-8">
+
+		<!-- body title -->
+		<div class="flex items-center justify-center w-full">
+			<!-- card -->
+			<div class="w-full bg-violet-300 p-2">
+				<h3 class="text-teal-300 text-3xl text-left md:text-center font-bold mb-3">	
+					404 Error
+				</h3>
+				<p class="text-slate-700 text-2xl text-left md:text-center">
+					Oh no, it seems you accidently entered the wrong url, try entering the url again or clicking on one of the services below!
+				</p>
+			</div>
+
+		</div>
+
+		<!-- advertisements -->
+		<div class="flex flex-col justify-center items-center mt-8">
+			<h1 class="text-teal-300 text-4xl text-left md:text-center font-bold">
+				Get A Tutor Today
+			</h1>
+
+			<div class="inline-flex flex-wrap items-center justify-center space-y-3 space-x-3">
+				<!-- prevents space-x/y from changing the size of the divs -->
+				<div></div>
+				<a id="Math" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="/services/subject=math">
+					<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">Math</h2>
+				</a>
+				<a id="English" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="/services/subject=english">
+					<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">English</h2>
+				</a>
+				<a id="Science" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="/services/subject=science">
+					<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">Science</h2>
+				</a>
+				<a id="History" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="/services/subject=history">
+					<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">History</h2>
+				</a>
+				<a id="SatAct" class="ad bg-violet-300 hover:bg-violet-200 hover:-translate-y-1 rounded-xl p-3 transition" href="/services/subject=satact">
+					<h2 class="text-center text-2xl text-teal-50 group-hover:text-teal-100 transition">SAT/ACT</h2>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script src="{{url_for('static', filename='serviceIcons.js')}}"></script>
+{% endblock %}
